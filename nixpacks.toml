@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["npm ci && npm run build"]
+
+[variables]
+NIXPACKS_NODE_VERSION = "20"
