@@ -1,65 +1,118 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Layers, ShieldCheck, Repeat } from "lucide-react";
+import { Section } from "@/components/Section";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero */}
+      <Section className="pt-32 pb-16 md:pt-40 md:pb-24" glow>
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent mb-8">
+            <Sparkles className="h-4 w-4" />
+            Design agent harnesses for any domain
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance mb-8">
+            Turn your ideas into{" "}
+            <span className="gradient-text">reusable AI systems</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+
+          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
+            A harness is not a prompt. It is a structured environment that turns an AI agent into a reliable operator for any workflow — video, research, publications, recipe books, fitness, trading, and beyond.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/generator/"
+              className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-white font-semibold hover:bg-accent-light transition-all shadow-lg shadow-accent/20"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Generate a Harness Recipe
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/what-is-a-harness/"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-surface px-6 py-3.5 text-text font-medium hover:bg-surface-2 transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
+              Learn what a harness is
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      {/* Trust strip */}
+      <Section className="py-12 border-y border-white/5 bg-surface/50">
+        <div className="text-center">
+          <p className="text-sm text-text-secondary uppercase tracking-wider mb-6">Built on ideas from</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-text-secondary opacity-70">
+            <span>Venice Video Harness</span>
+            <span>browser-use/video-use</span>
+            <span>Typed Natural Language</span>
+            <span>MarkdownLM</span>
+            <span>CtxVault</span>
+          </div>
+        </div>
+      </Section>
+
+      {/* Feature grid */}
+      <Section>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why build a harness?</h2>
+          <p className="text-text-secondary text-lg">
+            Platform harnesses are a great start. A custom harness is where the real leverage lives.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <FeatureCard
+            icon={<Layers className="h-6 w-6 text-accent" />}
+            title="Universal"
+            description="The same harness pattern works for any domain — recipe books, research reports, video series, trading strategies, or language learning apps."
+          />
+          <FeatureCard
+            icon={<ShieldCheck className="h-6 w-6 text-orange" />}
+            title="Cost-controlled"
+            description="Model-as-harness gets expensive fast. A custom harness amortizes design cost across hundreds of runs and keeps you off the pay-per-call treadmill."
+          />
+          <FeatureCard
+            icon={<Repeat className="h-6 w-6 text-blue" />}
+            title="Self-improving"
+            description="Every production run surfaces new anti-patterns. Log them once, and every future session follows the improved rules automatically."
+          />
         </div>
-      </main>
+      </Section>
+
+      {/* CTA */}
+      <Section className="pb-32" glow>
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface p-10 md:p-16 text-center">
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to engineer your harness?</h2>
+            <p className="text-text-secondary text-lg max-w-xl mx-auto mb-8">
+              Describe what you want to build. The generator will think through every layer and produce a complete starter kit.
+            </p>
+            <Link
+              href="/generator/"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-white font-semibold hover:bg-accent-light transition-all shadow-lg shadow-accent/20"
+            >
+              Start the Generator
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-orange/10 pointer-events-none" />
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+  return (
+    <div className="group rounded-2xl border border-white/5 bg-surface p-6 hover:border-accent/20 hover:bg-surface-2 transition-all">
+      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 group-hover:bg-accent/20 transition-colors">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-text-secondary leading-relaxed">{description}</p>
     </div>
   );
 }
