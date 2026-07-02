@@ -50,7 +50,12 @@ export async function veniceChat<T = string>(options: VeniceChatOptions): Promis
   }
 
   if (response_format?.type === "json_object") {
-    return JSON.parse(content) as T;
+    const cleaned = content
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/```\s*$/i, "")
+      .trim();
+    return JSON.parse(cleaned) as T;
   }
 
   return content as unknown as T;
@@ -62,11 +67,42 @@ export interface VeniceImageOptions {
   prompt: string;
   width?: number;
   height?: number;
+  aspect_ratio?: string;
+  resolution?: string;
   negative_prompt?: string;
 }
 
 export async function veniceImage(options: VeniceImageOptions): Promise<string> {
-  const { apiKey, model = "gpt-image-2", prompt, width = 1024, height = 1024, negative_prompt } = options;
+  const {
+    apiKey,
+    model = "gpt-image-2",
+    prompt,
+    width,
+    height,
+    aspect_ratio,
+    resolution,
+    negative_prompt,
+  } = options;
+
+  const body: Record<string, unknown> = {
+    model,
+    prompt,
+    format: "png",
+  };
+
+  if (aspect_ratio) {
+    body.aspect_ratio = aspect_ratio;
+  }
+  if (resolution) {
+    body.resolution = resolution;
+  }
+  if (width && height) {
+    body.width = width;
+    body.height = height;
+  }
+  if (negative_prompt) {
+    body.negative_prompt = negative_prompt;
+  }
 
   const response = await fetch("https://api.venice.ai/api/v1/image/generate", {
     method: "POST",
@@ -74,13 +110,7 @@ export async function veniceImage(options: VeniceImageOptions): Promise<string> 
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
     },
-    body: JSON.stringify({
-      model,
-      prompt,
-      width,
-      height,
-      ...(negative_prompt ? { negative_prompt } : {}),
-    }),
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {

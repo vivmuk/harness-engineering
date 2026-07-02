@@ -46,8 +46,7 @@ Output strictly valid JSON matching this schema:
   "diagramPrompt": "a detailed prompt for a Venice image model that illustrates this harness as a beautiful, dark-themed, diagrammatic infographic. Cool palette: deep violet, electric blue, soft orange accents. No text labels. Abstract nodes, flowing arrows, layered structure."
 }
 
-Be specific. Use real file names, command names, and data structures. The recipe should feel like a starter kit the user can implement today.
-`;
+Be specific but concise. Use real file names, command names, and data structures. Keep each section to a few bullet-rich paragraphs so the entire JSON fits within the output token limit. Do not wrap the JSON in markdown code fences. Output raw JSON only.`;
 
 export async function generateHarnessRecipe(options: GenerateHarnessOptions): Promise<HarnessRecipe> {
   const { apiKey, useCase, model = "claude-sonnet-4-6" } = options;
@@ -65,7 +64,7 @@ export async function generateHarnessRecipe(options: GenerateHarnessOptions): Pr
     model,
     messages,
     temperature: 0.7,
-    max_tokens: 6000,
+    max_tokens: 12000,
     response_format: { type: "json_object" },
   });
 

@@ -59,8 +59,8 @@ export default function GeneratorPage() {
       const imageUrl = await veniceImage({
         apiKey,
         prompt: recipe.diagramPrompt,
-        width: 1792,
-        height: 1024,
+        aspect_ratio: "16:9",
+        resolution: "2K",
       });
       setRecipe({ ...recipe, diagramImage: imageUrl });
     } catch (err) {
