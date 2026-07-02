@@ -24,4 +24,4 @@ COPY --from=base /app/package.json ./package.json
 RUN npm install -g serve@latest
 
 EXPOSE 3000
-CMD ["serve", "dist", "-l", "3000"]
+CMD ["sh", "-c", "serve dist -l ${PORT:-3000}"]
