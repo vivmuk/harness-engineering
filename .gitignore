@@ -4,3 +4,11 @@ dist/
 .env*.local
 .vercel
 *.log
+node_modules/
+.next/
+dist/
+.env*.local
+.vercel
+*.log
+.venv/
+tsconfig.tsbuildinfo

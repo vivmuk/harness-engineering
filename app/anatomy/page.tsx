@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
 import { BookOpen, Users, Wrench, Code2, Database, AlertTriangle, FileCode } from "lucide-react";
+import { ThemeCard } from "@/components/ThemeCard";
 
 export const metadata = {
   title: "Anatomy of a Harness | Harness Engineering",
@@ -72,7 +73,7 @@ export default function Anatomy() {
         </div>
       </Section>
 
-      <Section className="pb-32">
+      <Section className="pb-16">
         <div className="relative">
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-orange to-blue hidden md:block" />
 
@@ -101,6 +102,38 @@ export default function Anatomy() {
               </div>
             ))}
           </div>
+        </div>
+      </Section>
+
+      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ancient layers, modern agents
+          </h2>
+          <p className="text-text-secondary text-lg">
+            Every durable knowledge system separated rules, roles, records, and rituals. A harness is the same idea in software.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <ThemeCard
+            image="/images/card-indian.webp"
+            badge="Rules & records"
+            title="Indian observatories"
+            description="Celestial rules, instrument specialists, and manuscript archives — all preserved so the next generation could resume the work."
+          />
+          <ThemeCard
+            image="/images/card-unified.webp"
+            badge="Roles & rituals"
+            title="Shared architecture"
+            description="The same layers appear in every great system: who decides, what is stored, how work is checked, and how lessons survive."
+          />
+          <ThemeCard
+            image="/images/card-egyptian.webp"
+            badge="Execution & QA"
+            title="Egyptian temple offices"
+            description="Scribes, inspectors, and standardized records turned complex state projects into repeatable operations."
+          />
         </div>
       </Section>
     </>

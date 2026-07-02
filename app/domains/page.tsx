@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
-import { Film, BookOpen, FileText, Dumbbell, TrendingUp, Languages, UtensilsCrossed, Microscope } from "lucide-react";
+import { Film, BookOpen, FileText, Dumbbell, TrendingUp, Languages, UtensilsCrossed, Microscope, Sparkles } from "lucide-react";
+import { ThemeCard } from "@/components/ThemeCard";
 
 export const metadata = {
   title: "Domain Examples | Harness Engineering",
@@ -71,7 +72,7 @@ export default function Domains() {
         </div>
       </Section>
 
-      <Section className="pb-32">
+      <Section className="pb-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domains.map((domain) => (
             <div key={domain.title} className="rounded-2xl border border-white/5 bg-surface p-6 hover:border-accent/20 transition-colors flex flex-col">
@@ -89,6 +90,50 @@ export default function Domains() {
               </div>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent mb-4">
+              <Sparkles className="h-4 w-4" />
+              Visual language
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              A look that carries meaning
+            </h2>
+            <p className="text-text-secondary text-lg leading-relaxed">
+              The Indian and Egyptian visual themes are not decoration. They remind us that harnesses are a human pattern: rules, roles, records, and rituals, refined over millennia.
+            </p>
+          </div>
+          <ThemeCard
+            image="/images/hero-unified.webp"
+            badge="Indo-Egyptian"
+            title="Two civilizations, one architecture"
+            description="Observatories, archives, scribes, inspectors, and recurring motifs — every durable system needs the same harness layers."
+          />
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <ThemeCard
+            image="/images/card-indian.webp"
+            badge="Video & creative"
+            title="Pattern and repetition"
+            description="Like Indian miniature painting, creative harnesses rely on consistent motifs, palettes, and compositional rules."
+          />
+          <ThemeCard
+            image="/images/card-egyptian.webp"
+            badge="Research & legal"
+            title="Order and provenance"
+            description="Like Egyptian record-keeping, research harnesses depend on structured archives, citation trails, and verification roles."
+          />
+          <ThemeCard
+            image="/images/card-unified.webp"
+            badge="Every domain"
+            title="Reusable across cultures"
+            description="The same harness layers work in any domain because the underlying problem — reliable, reusable work — is universal."
+          />
         </div>
       </Section>
     </>

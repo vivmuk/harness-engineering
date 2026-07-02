@@ -1,6 +1,7 @@
 import { Section } from "@/components/Section";
 import { ArrowRight, Bot, FileText, Settings, Shield } from "lucide-react";
 import Link from "next/link";
+import { ThemeCard } from "@/components/ThemeCard";
 
 export const metadata = {
   title: "What is a Harness? | Harness Engineering",
@@ -73,6 +74,32 @@ export default function WhatIsAHarness() {
             icon={<Settings className="h-6 w-6 text-success" />}
             title="Cost control"
             description="Model-as-harness is pay-per-call. A custom harness amortizes design cost across many runs and avoids expensive re-derivation."
+          />
+        </div>
+      </Section>
+
+      <Section className="border-y border-white/5 bg-surface/30">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            A timeless pattern
+          </h2>
+          <p className="text-text-secondary text-lg">
+            Great knowledge systems have always used the same building blocks: rules, specialists, archives, and feedback loops.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <ThemeCard
+            image="/images/hero-indian.webp"
+            badge="Indian"
+            title="Layered, living knowledge"
+            description="Miniature manuscripts, observatory instruments, and repeating motifs — every element placed to be preserved, consulted, and built upon."
+          />
+          <ThemeCard
+            image="/images/hero-egyptian.webp"
+            badge="Egyptian"
+            title="Structured, scalable record-keeping"
+            description="Papyrus archives, temple libraries, and standardized hieroglyphic rules — an environment where complex work could be reproduced with precision."
           />
         </div>
       </Section>

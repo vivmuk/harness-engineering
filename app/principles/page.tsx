@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
 import { Lightbulb, FileSearch, RefreshCw, Layers, Eye, ShieldCheck } from "lucide-react";
+import { ThemeCard } from "@/components/ThemeCard";
 
 export const metadata = {
   title: "Principles | Harness Engineering",
@@ -54,7 +55,7 @@ export default function Principles() {
         </div>
       </Section>
 
-      <Section className="pb-32">
+      <Section className="pb-16">
         <div className="grid md:grid-cols-2 gap-6">
           {principles.map((p) => (
             <div key={p.title} className="rounded-2xl border border-white/5 bg-surface p-6 hover:border-accent/20 transition-colors">
@@ -65,6 +66,32 @@ export default function Principles() {
               <p className="text-text-secondary leading-relaxed">{p.description}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Principles with history
+          </h2>
+          <p className="text-text-secondary text-lg">
+            The best harness principles are not new. They are the same ones that kept ancient knowledge systems alive for centuries.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <ThemeCard
+            image="/images/card-egyptian.webp"
+            badge="Preserve"
+            title="Write it down, check it twice"
+            description="Egyptian scribes recorded, reviewed, and standardized. A harness that does not log its anti-patterns forgets as fast as it runs."
+          />
+          <ThemeCard
+            image="/images/card-indian.webp"
+            badge="Improve"
+            title="Refine the pattern"
+            description="Indian miniature painters repeated motifs under strict rules, evolving them over generations. A harness should do the same with its rules and playbooks."
+          />
         </div>
       </Section>
     </>

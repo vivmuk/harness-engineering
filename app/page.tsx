@@ -1,41 +1,50 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles, Layers, ShieldCheck, Repeat } from "lucide-react";
 import { Section } from "@/components/Section";
+import { ThemeCard } from "@/components/ThemeCard";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <Section className="pt-32 pb-16 md:pt-40 md:pb-24" glow>
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent mb-8">
-            <Sparkles className="h-4 w-4" />
-            Design agent harnesses for any domain
-          </div>
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface">
+          <img
+            src="/images/hero-unified.webp"
+            alt="Ancient Indian and Egyptian knowledge systems merged into a single AI harness"
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/80 to-bg" />
+          <div className="relative z-10 px-6 py-16 md:py-24 text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent mb-8">
+              <Sparkles className="h-4 w-4" />
+              Design agent harnesses for any domain
+            </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance mb-8">
-            Turn your ideas into{" "}
-            <span className="gradient-text">reusable AI systems</span>
-          </h1>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance mb-8">
+              Turn your ideas into{" "}
+              <span className="gradient-text">reusable AI systems</span>
+            </h1>
 
-          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-            A harness is not a prompt. It is a structured environment that turns an AI agent into a reliable operator for any workflow — video, research, publications, recipe books, fitness, trading, and beyond.
-          </p>
+            <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
+              A harness is not a prompt. It is a structured environment that turns an AI agent into a reliable operator for any workflow — video, research, publications, recipe books, fitness, trading, and beyond.
+            </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/generator/"
-              className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-white font-semibold hover:bg-accent-light transition-all shadow-lg shadow-accent/20"
-            >
-              Generate a Harness Recipe
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/what-is-a-harness/"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-surface px-6 py-3.5 text-text font-medium hover:bg-surface-2 transition-colors"
-            >
-              Learn what a harness is
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/generator/"
+                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-white font-semibold hover:bg-accent-light transition-all shadow-lg shadow-accent/20"
+              >
+                Generate a Harness Recipe
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/what-is-a-harness/"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-surface/80 backdrop-blur px-6 py-3.5 text-text font-medium hover:bg-surface-2 transition-colors"
+              >
+                Learn what a harness is
+              </Link>
+            </div>
           </div>
         </div>
       </Section>
@@ -78,6 +87,39 @@ export default function Home() {
             icon={<Repeat className="h-6 w-6 text-blue" />}
             title="Self-improving"
             description="Every production run surfaces new anti-patterns. Log them once, and every future session follows the improved rules automatically."
+          />
+        </div>
+      </Section>
+
+      {/* Cultural harness theme section */}
+      <Section className="border-y border-white/5 bg-surface/30">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Harnesses are <span className="gradient-text">older than AI</span>
+          </h2>
+          <p className="text-text-secondary text-lg">
+            From Indian observatories to Egyptian archives, every great civilization built systems to preserve and reuse knowledge. Harness Engineering applies the same idea to AI agents.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <ThemeCard
+            image="/images/card-indian.webp"
+            badge="Indian"
+            title="Observatories of order"
+            description="Celestial maps, layered manuscripts, and repeating patterns — a knowledge system designed to be preserved, passed down, and reused."
+          />
+          <ThemeCard
+            image="/images/card-unified.webp"
+            badge="Unified"
+            title="One shared architecture"
+            description="When two ancient systems meet, the same underlying pattern appears: rules, storage, specialist roles, and continuous improvement."
+          />
+          <ThemeCard
+            image="/images/card-egyptian.webp"
+            badge="Egyptian"
+            title="Temples of record"
+            description="Hieroglyphic panels, papyrus scrolls, and structured archives — a durable environment for keeping complex work consistent."
           />
         </div>
       </Section>
