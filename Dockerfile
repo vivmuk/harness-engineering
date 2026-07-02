@@ -23,5 +23,8 @@ COPY --from=base /app/package.json ./package.json
 # Install a lightweight static server
 RUN npm install -g serve@latest
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 3000
-CMD ["sh", "-c", "serve dist -l ${PORT:-3000}"]
+CMD ["/entrypoint.sh"]
