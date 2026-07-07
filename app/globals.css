@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-bg: #050507;
@@ -118,6 +119,22 @@ pre {
 code {
   font-family: var(--font-geist-mono), "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.875em;
+}
+
+/* Rendered markdown inside generator recipe sections */
+.prose-harness {
+  --tw-prose-invert-headings: var(--text);
+  --tw-prose-invert-body: var(--text-secondary);
+  --tw-prose-invert-bold: var(--text);
+  --tw-prose-invert-links: var(--accent-light);
+  --tw-prose-invert-code: var(--accent-light);
+  --tw-prose-invert-pre-bg: var(--surface-2);
+  --tw-prose-invert-bullets: var(--accent);
+  --tw-prose-invert-counters: var(--accent);
+  --tw-prose-invert-hr: var(--surface-3);
+  --tw-prose-invert-quote-borders: var(--accent);
+  --tw-prose-invert-th-borders: var(--surface-3);
+  --tw-prose-invert-td-borders: var(--surface-2);
 }
 
 /* Animation utilities */
