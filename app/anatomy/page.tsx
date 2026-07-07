@@ -65,9 +65,9 @@ export default function Anatomy() {
       <Section className="pt-24 pb-16" glow>
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            The <span className="gradient-text">seven layers</span> of a harness
+            The <span className="italic-accent">seven layers</span> of a harness
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-ink-2 leading-relaxed">
             A harness is a stack. Each layer has a clear responsibility, and together they turn improvisation into operations.
           </p>
         </div>
@@ -80,10 +80,10 @@ export default function Anatomy() {
           <div className="space-y-8">
             {layers.map((layer, idx) => (
               <div key={layer.title} className="relative md:pl-24">
-                <div className="absolute left-0 top-0 hidden md:flex h-16 w-16 items-center justify-center rounded-2xl bg-surface border border-white/10 z-10">
+                <div className="absolute left-0 top-0 hidden md:flex h-16 w-16 items-center justify-center rounded-2xl bg-paper border border-rule z-10">
                   {layer.icon}
                 </div>
-                <div className="rounded-2xl border border-white/5 bg-surface p-6 md:p-8 hover:border-accent/20 transition-colors">
+                <div className="rounded-2xl border border-rule bg-paper p-6 md:p-8 hover:border-accent/20 transition-colors">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="md:hidden flex h-10 w-10 items-center justify-center rounded-xl bg-surface-2">
                       {layer.icon}
@@ -93,9 +93,9 @@ export default function Anatomy() {
                       <h2 className="text-xl md:text-2xl font-bold">{layer.title}</h2>
                     </div>
                   </div>
-                  <p className="text-sm font-mono text-text-secondary mb-4">{layer.file}</p>
-                  <p className="text-text-secondary mb-3">{layer.purpose}</p>
-                  <p className="text-sm text-text-secondary/70 border-l-2 border-accent/30 pl-4">
+                  <p className="text-sm font-mono text-ink-2 mb-4">{layer.file}</p>
+                  <p className="text-ink-2 mb-3">{layer.purpose}</p>
+                  <p className="text-sm text-ink-2/70 border-l-2 border-accent/30 pl-4">
                     Example: {layer.example}
                   </p>
                 </div>
@@ -105,12 +105,12 @@ export default function Anatomy() {
         </div>
       </Section>
 
-      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+      <Section className="border-y border-rule bg-paper-2 pb-32">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ancient layers, modern agents
           </h2>
-          <p className="text-text-secondary text-lg">
+          <p className="text-ink-2 text-lg">
             Every durable knowledge system separated rules, roles, records, and rituals. A harness is the same idea in software.
           </p>
         </div>

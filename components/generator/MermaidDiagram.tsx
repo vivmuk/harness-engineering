@@ -63,13 +63,13 @@ export function MermaidDiagram({ code }: { code: string }) {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-surface overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-2 border-b border-white/5">
-        <span className="text-xs font-medium text-text-secondary uppercase tracking-wider">Architecture Diagram</span>
+    <div className="rounded-2xl border border-rule bg-paper overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-rule">
+        <span className="text-xs font-medium text-ink-2 uppercase tracking-wider">Architecture Diagram</span>
         <div className="flex items-center gap-1">
           <button
             onClick={() => setShowSource((v) => !v)}
-            className="rounded-md p-1.5 text-text-secondary hover:text-text hover:bg-surface-3 transition-colors"
+            className="rounded-md p-1.5 text-ink-2 hover:text-ink hover:bg-surface-3 transition-colors"
             title={showSource ? "Show diagram" : "View Mermaid source"}
             aria-pressed={showSource}
           >
@@ -77,7 +77,7 @@ export function MermaidDiagram({ code }: { code: string }) {
           </button>
           <button
             onClick={handleCopy}
-            className="rounded-md p-1.5 text-text-secondary hover:text-text hover:bg-surface-3 transition-colors"
+            className="rounded-md p-1.5 text-ink-2 hover:text-ink hover:bg-surface-3 transition-colors"
             title="Copy Mermaid source"
           >
             {copied ? <CheckCircle2 className="h-4 w-4 text-success" /> : <Copy className="h-4 w-4" />}
@@ -100,7 +100,7 @@ export function MermaidDiagram({ code }: { code: string }) {
           dangerouslySetInnerHTML={{ __html: svg }}
         />
       ) : (
-        <div className="p-10 text-center text-sm text-text-secondary animate-pulse">Rendering diagram…</div>
+        <div className="p-10 text-center text-sm text-ink-2 animate-pulse">Rendering diagram…</div>
       )}
     </div>
   );

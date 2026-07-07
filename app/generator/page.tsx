@@ -315,15 +315,15 @@ export default function GeneratorPage() {
       <Section className="pt-24 pb-16" glow>
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Harness <span className="gradient-text">Recipe Generator</span>
+            Harness <span className="italic-accent">Recipe Generator</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-ink-2 leading-relaxed">
             Describe what you want to build. The generator designs the full harness: rules, playbooks, agents, state, anti-patterns, and a beautiful diagram.
           </p>
         </div>
       </Section>
 
-      <Section className="border-y border-white/5 bg-surface/50">
+      <Section className="border-y border-rule bg-paper-2">
         <div className="max-w-2xl mx-auto space-y-6">
           <HistoryPanel
             items={history}
@@ -333,7 +333,7 @@ export default function GeneratorPage() {
           />
 
           <div className="space-y-2">
-            <label htmlFor="apiKey" className="flex items-center gap-2 text-sm font-medium text-text">
+            <label htmlFor="apiKey" className="flex items-center gap-2 text-sm font-medium text-ink">
               <Key className="h-4 w-4 text-accent" />
               Venice API Key
             </label>
@@ -344,13 +344,13 @@ export default function GeneratorPage() {
               onChange={(e) => setApiKey(e.target.value)}
               onBlur={loadModels}
               placeholder="sk-venice-..."
-              className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-text placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full rounded-xl border border-rule bg-paper px-4 py-3 text-ink placeholder:text-ink-2/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
             />
             <div className="flex items-center justify-between gap-3">
-              <p className="text-xs text-text-secondary">
+              <p className="text-xs text-ink-2">
                 Your key stays in your browser. It is sent directly to Venice AI from your device.
               </p>
-              <label className="flex items-center gap-1.5 text-xs text-text-secondary whitespace-nowrap cursor-pointer">
+              <label className="flex items-center gap-1.5 text-xs text-ink-2 whitespace-nowrap cursor-pointer">
                 <input
                   type="checkbox"
                   checked={rememberKey}
@@ -369,7 +369,7 @@ export default function GeneratorPage() {
                 loadModels();
               }}
               aria-expanded={showModelSettings}
-              className="flex items-center gap-2 text-xs font-medium text-text-secondary hover:text-text transition-colors"
+              className="flex items-center gap-2 text-xs font-medium text-ink-2 hover:text-ink transition-colors"
             >
               <SlidersHorizontal className="h-3.5 w-3.5" />
               Model settings
@@ -378,7 +378,7 @@ export default function GeneratorPage() {
             {showModelSettings && (
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label htmlFor="textModel" className="text-xs font-medium text-text-secondary">
+                  <label htmlFor="textModel" className="text-xs font-medium text-ink-2">
                     Text model
                   </label>
                   {textModels.length > 0 ? (
@@ -386,7 +386,7 @@ export default function GeneratorPage() {
                       id="textModel"
                       value={textModel}
                       onChange={(e) => setTextModel(e.target.value)}
-                      className="w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-text focus:border-accent focus:outline-none"
+                      className="w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none"
                     >
                       {!textModels.some((m) => m.id === textModel) && <option value={textModel}>{textModel}</option>}
                       {textModels.map((m) => (
@@ -401,12 +401,12 @@ export default function GeneratorPage() {
                       type="text"
                       value={textModel}
                       onChange={(e) => setTextModel(e.target.value)}
-                      className="w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-text focus:border-accent focus:outline-none"
+                      className="w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none"
                     />
                   )}
                 </div>
                 <div className="space-y-1">
-                  <label htmlFor="imageModel" className="text-xs font-medium text-text-secondary">
+                  <label htmlFor="imageModel" className="text-xs font-medium text-ink-2">
                     Image model
                   </label>
                   {imageModels.length > 0 ? (
@@ -414,7 +414,7 @@ export default function GeneratorPage() {
                       id="imageModel"
                       value={imageModel}
                       onChange={(e) => setImageModel(e.target.value)}
-                      className="w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-text focus:border-accent focus:outline-none"
+                      className="w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none"
                     >
                       {!imageModels.some((m) => m.id === imageModel) && <option value={imageModel}>{imageModel}</option>}
                       {imageModels.map((m) => (
@@ -429,11 +429,11 @@ export default function GeneratorPage() {
                       type="text"
                       value={imageModel}
                       onChange={(e) => setImageModel(e.target.value)}
-                      className="w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-text focus:border-accent focus:outline-none"
+                      className="w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none"
                     />
                   )}
                 </div>
-                <p className="sm:col-span-2 text-xs text-text-secondary">
+                <p className="sm:col-span-2 text-xs text-ink-2">
                   Models load from your Venice account when a key is set; otherwise type any model id.
                 </p>
               </div>
@@ -441,14 +441,14 @@ export default function GeneratorPage() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="useCase" className="text-sm font-medium text-text">Use Case</label>
+            <label htmlFor="useCase" className="text-sm font-medium text-ink">Use Case</label>
             <textarea
               id="useCase"
               value={useCase}
               onChange={(e) => setUseCase(e.target.value)}
               placeholder="e.g. Generate a weekly deep-research briefing from a topic, with citations and a one-page executive summary"
               rows={4}
-              className="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-text placeholder:text-text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent resize-none"
+              className="w-full rounded-xl border border-rule bg-paper px-4 py-3 text-ink placeholder:text-ink-2/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent resize-none"
             />
           </div>
 
@@ -457,7 +457,7 @@ export default function GeneratorPage() {
               <button
                 key={example}
                 onClick={() => setUseCase(example)}
-                className="text-xs rounded-full border border-white/10 bg-surface-2 px-3 py-1.5 text-text-secondary hover:border-accent/30 hover:text-text transition-colors"
+                className="text-xs rounded-full border border-rule bg-surface-2 px-3 py-1.5 text-ink-2 hover:border-accent/30 hover:text-ink transition-colors"
               >
                 {example}
               </button>
@@ -483,7 +483,7 @@ export default function GeneratorPage() {
             {isStreaming && (
               <button
                 onClick={handleCancel}
-                className="rounded-xl border border-white/10 bg-surface px-4 py-4 text-sm font-medium text-text-secondary hover:text-text hover:bg-surface-2 transition-colors flex items-center gap-2"
+                className="rounded-xl border border-rule bg-paper px-4 py-4 text-sm font-medium text-ink-2 hover:text-ink hover:bg-surface-2 transition-colors flex items-center gap-2"
               >
                 <XCircle className="h-5 w-5" />
                 Cancel
@@ -498,7 +498,7 @@ export default function GeneratorPage() {
           <div className="max-w-4xl mx-auto">
             {sharedView && (
               <div className="mb-8 rounded-xl border border-accent/30 bg-accent/10 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <p className="text-sm text-text">
+                <p className="text-sm text-ink">
                   You&apos;re viewing a shared recipe. Save it to your library to refine or extend it.
                 </p>
                 <button
@@ -517,7 +517,7 @@ export default function GeneratorPage() {
                   {recipe.domain ?? "Designing"} Harness
                   {isStreaming && <Loader2 className="inline-block ml-3 h-5 w-5 animate-spin text-accent" />}
                 </h2>
-                <p className="text-text-secondary">
+                <p className="text-ink-2">
                   {isStreaming
                     ? "Sections appear live as the model designs them."
                     : "Review each layer, refine any section, then share or download the starter bundle."}
@@ -529,7 +529,7 @@ export default function GeneratorPage() {
                     <button
                       onClick={handleGenerateDiagram}
                       disabled={generatingImage || !apiKey.trim()}
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-surface px-4 py-2.5 text-sm font-medium text-text hover:bg-surface-2 transition-colors disabled:opacity-60"
+                      className="inline-flex items-center gap-2 rounded-xl border border-rule bg-paper px-4 py-2.5 text-sm font-medium text-ink hover:bg-surface-2 transition-colors disabled:opacity-60"
                     >
                       {generatingImage ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />}
                       {generatingImage ? "Generating..." : "AI Art Diagram"}
@@ -537,7 +537,7 @@ export default function GeneratorPage() {
                   )}
                   <button
                     onClick={handleShare}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-surface px-4 py-2.5 text-sm font-medium text-text hover:bg-surface-2 transition-colors"
+                    className="inline-flex items-center gap-2 rounded-xl border border-rule bg-paper px-4 py-2.5 text-sm font-medium text-ink hover:bg-surface-2 transition-colors"
                   >
                     {shareCopied ? <CheckCircle2 className="h-4 w-4 text-success" /> : <Share2 className="h-4 w-4" />}
                     {shareCopied ? "Link copied!" : "Share"}
@@ -557,7 +557,7 @@ export default function GeneratorPage() {
               <div className="mb-10 space-y-4">
                 <MermaidDiagram code={recipe.mermaidDiagram} />
                 {recipe.diagramImage && (
-                  <div className="rounded-2xl border border-white/10 bg-surface p-2 overflow-hidden">
+                  <div className="rounded-2xl border border-rule bg-paper p-2 overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={recipe.diagramImage}
@@ -568,7 +568,7 @@ export default function GeneratorPage() {
                 )}
               </div>
             ) : (
-              <div className="mb-10 rounded-2xl border border-white/10 bg-surface p-2 overflow-hidden">
+              <div className="mb-10 rounded-2xl border border-rule bg-paper p-2 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={recipe.diagramImage || "/harness-diagram.svg"}

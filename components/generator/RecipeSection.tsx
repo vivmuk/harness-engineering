@@ -51,8 +51,8 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
   return (
     <div
       className={cn(
-        "rounded-xl border bg-surface overflow-hidden transition-colors",
-        streaming ? "border-accent/40" : justRefined ? "border-success/50" : "border-white/5"
+        "rounded-xl border bg-paper overflow-hidden transition-colors",
+        streaming ? "border-accent/40" : justRefined ? "border-success/50" : "border-rule"
       )}
     >
       <div className="flex items-center justify-between pr-3 hover:bg-surface-2 transition-colors">
@@ -61,14 +61,14 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
           aria-expanded={expanded}
           className="flex-1 flex items-center justify-between gap-3 p-5 text-left"
         >
-          <span className="font-semibold text-text flex items-center gap-2">
+          <span className="font-semibold text-ink flex items-center gap-2">
             {label}
             {streaming && <Loader2 className="h-3.5 w-3.5 animate-spin text-accent" />}
           </span>
           {expanded ? (
             <ChevronUp className="h-5 w-5 text-accent shrink-0" />
           ) : (
-            <ChevronDown className="h-5 w-5 text-text-secondary shrink-0" />
+            <ChevronDown className="h-5 w-5 text-ink-2 shrink-0" />
           )}
         </button>
         <div className="flex items-center gap-1 shrink-0">
@@ -80,7 +80,7 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
               }}
               className={cn(
                 "rounded-md p-1.5 hover:bg-surface-3 transition-colors",
-                refineOpen ? "text-accent" : "text-text-secondary hover:text-text"
+                refineOpen ? "text-accent" : "text-ink-2 hover:text-ink"
               )}
               title="Refine this section with AI"
             >
@@ -89,7 +89,7 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
           )}
           <button
             onClick={handleCopy}
-            className="rounded-md p-1.5 text-text-secondary hover:text-text hover:bg-surface-3 transition-colors"
+            className="rounded-md p-1.5 text-ink-2 hover:text-ink hover:bg-surface-3 transition-colors"
             title="Copy"
           >
             {copied ? <CheckCircle2 className="h-4 w-4 text-success" /> : <Copy className="h-4 w-4" />}
@@ -97,7 +97,7 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
         </div>
       </div>
       {expanded && (
-        <div className="px-5 pb-5 border-t border-white/5">
+        <div className="px-5 pb-5 border-t border-rule">
           {refineOpen && onRefine && (
             <div className="mt-4 rounded-lg border border-accent/20 bg-surface-2 p-3 space-y-2">
               <div className="flex gap-2">
@@ -108,7 +108,7 @@ export function RecipeSection({ label, content, expanded, streaming, onToggle, o
                   onKeyDown={(e) => e.key === "Enter" && handleRefine()}
                   placeholder="e.g. make the agents more specific"
                   disabled={refining}
-                  className="flex-1 rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-text placeholder:text-text-secondary/50 focus:border-accent focus:outline-none"
+                  className="flex-1 rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink-2/50 focus:border-accent focus:outline-none"
                 />
                 <button
                   onClick={handleRefine}

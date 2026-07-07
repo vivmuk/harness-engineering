@@ -1,36 +1,77 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* =========================================================================
+ * Harness Engineering — viv-design Riso-on-paper polish (2026-07-07)
+ * Design read: BRAND showcase for an AI harness-generation toolkit.
+ * Palette: paper-led, ink-on-paper inverse of the prior dark Riso project.
+ * Anti-slop: NO carbon-on-paper cream mirror, NO tri-color gradient text,
+ *            NO glassmorphism, NO decorative-float keyframes, NO glow halos.
+ * ======================================================================== */
+
 @theme {
-  --color-bg: #050507;
-  --color-surface: #0f0f13;
-  --color-surface-2: #16161d;
-  --color-surface-3: #1e1e27;
-  --color-text: #f5f5f7;
-  --color-text-secondary: #9ca3af;
-  --color-accent: #6d5dfc;
-  --color-accent-light: #8b7dff;
-  --color-accent-glow: rgba(109, 93, 252, 0.25);
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-orange: #ff6b35;
-  --color-blue: #3b82f6;
+  /* --- surface tokens (paper-led) --- */
+  --color-paper:    #F4F0E8;
+  --color-paper-2:  #ECDFC8;
+  --color-paper-3:  #E0D2B0;
+  --color-ink:      #1A1A1F;
+  --color-ink-2:    #6E6E78;
+  --color-rule:     rgba(26, 26, 31, 0.12);
+
+  /* --- legacy variable aliases used by tailwind.config.ts + components --- */
+  --color-bg:        var(--color-paper);
+  --color-surface:   var(--color-paper);
+  --color-surface-2: var(--color-paper-2);
+  --color-surface-3: var(--color-paper-3);
+  --color-text:      var(--color-ink);
+  --color-text-secondary: var(--color-ink-2);
+
+  /* --- brand action (kept: distinctive violet, not on reflex-reject list) --- */
+  --color-accent:        #6d5dfc;
+  --color-accent-light:  #8b7dff;
+  --color-accent-glow:   rgba(109, 93, 252, 0.20);
+
+  /* --- Riso data-viz accents (carried over from prior dark Riso project) --- */
+  --color-magenta: #FF2E93;
+  --color-cobalt:  #0066FF;
+  --color-acid:    #F5FF40;
+
+  /* --- status colors (tuned for light bg, not the default dark neon) --- */
+  --color-success: #1A7F37;
+  --color-warning: #B25305;
+  --color-orange:  #E04D0E;
+  --color-blue:    #0066FF;
 }
 
 :root {
-  --bg: #050507;
-  --surface: #0f0f13;
-  --surface-2: #16161d;
-  --surface-3: #1e1e27;
-  --text: #f5f5f7;
-  --text-secondary: #9ca3af;
+  /* Plain CSS custom properties so non-tailwind references still resolve */
+  --paper: #F4F0E8;
+  --paper-2: #ECDFC8;
+  --paper-3: #E0D2B0;
+  --ink: #1A1A1F;
+  --ink-2: #6E6E78;
+  --rule: rgba(26, 26, 31, 0.12);
+
+  --bg: #F4F0E8;
+  --surface: #F4F0E8;
+  --surface-2: #ECDFC8;
+  --surface-3: #E0D2B0;
+
+  --text: #1A1A1F;
+  --text-secondary: #6E6E78;
+
   --accent: #6d5dfc;
   --accent-light: #8b7dff;
-  --accent-glow: rgba(109, 93, 252, 0.25);
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --orange: #ff6b35;
-  --blue: #3b82f6;
+  --accent-glow: rgba(109, 93, 252, 0.20);
+
+  --magenta: #FF2E93;
+  --cobalt: #0066FF;
+  --acid: #F5FF40;
+
+  --success: #1A7F37;
+  --warning: #B25305;
+  --orange: #E04D0E;
+  --blue: #0066FF;
 }
 
 * {
@@ -48,69 +89,48 @@ body {
 }
 
 ::selection {
-  background-color: rgba(109, 93, 252, 0.4);
-  color: #fff;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #6d5dfc 0%, #ff6b35 50%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(109, 93, 252, 0.6), rgba(255, 107, 53, 0.3), rgba(59, 130, 246, 0.4));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.glow-accent {
-  box-shadow: 0 0 60px rgba(109, 93, 252, 0.15);
-}
-
-.glow-accent-strong {
-  box-shadow: 0 0 100px rgba(109, 93, 252, 0.25);
+  background-color: var(--accent);
+  color: var(--paper);
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-/* Custom scrollbar */
+/* Single-color accent span — replaces the deleted gradient-text reflex.
+ * Used for the italic word in hero headlines. */
+.italic-accent {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--magenta);
+}
+
+/* Single-color rule border — replaces the deleted gradient-border reflex.
+ * 1px ink-on-paper. */
+.rule-border {
+  border: 1px solid var(--rule);
+}
+
+/* Custom scrollbar (light) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--surface);
+  background: var(--surface-2);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-3);
+  background: var(--rule);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
 
-/* Code blocks */
+/* Code blocks (light) */
 pre {
   background: var(--surface-2);
-  border: 1px solid var(--surface-3);
+  border: 1px solid var(--rule);
   border-radius: 0.75rem;
   padding: 1rem;
   overflow-x: auto;
@@ -121,37 +141,28 @@ code {
   font-size: 0.875em;
 }
 
-/* Rendered markdown inside generator recipe sections */
+/* Reduced-motion override — strip any decorative keyframes that survived */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Rendered markdown inside the generator's recipe sections.
+ * Inherits the rest of the typography stack from Tailwind v4 typography. */
 .prose-harness {
-  --tw-prose-invert-headings: var(--text);
-  --tw-prose-invert-body: var(--text-secondary);
-  --tw-prose-invert-bold: var(--text);
-  --tw-prose-invert-links: var(--accent-light);
-  --tw-prose-invert-code: var(--accent-light);
-  --tw-prose-invert-pre-bg: var(--surface-2);
-  --tw-prose-invert-bullets: var(--accent);
-  --tw-prose-invert-counters: var(--accent);
-  --tw-prose-invert-hr: var(--surface-3);
-  --tw-prose-invert-quote-borders: var(--accent);
-  --tw-prose-invert-th-borders: var(--surface-3);
-  --tw-prose-invert-td-borders: var(--surface-2);
-}
-
-/* Animation utilities */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  --tw-prose-body: var(--text-secondary);
+  --tw-prose-headings: var(--text);
+  --tw-prose-bold: var(--text);
+  --tw-prose-links: var(--accent);
+  --tw-prose-code: var(--accent);
+  --tw-prose-pre-bg: var(--surface-2);
+  --tw-prose-bullets: var(--accent);
+  --tw-prose-counters: var(--accent);
+  --tw-prose-hr: var(--rule);
+  --tw-prose-quote-borders: var(--accent);
+  --tw-prose-th-borders: var(--rule);
+  --tw-prose-td-borders: var(--surface-2);
 }

@@ -1,4 +1,4 @@
-export const DEFAULT_TEXT_MODEL = "claude-sonnet-4-6";
+export const DEFAULT_TEXT_MODEL = "claude-fable-5";
 export const DEFAULT_IMAGE_MODEL = "gpt-image-2";
 
 const VENICE_API_BASE = "https://api.venice.ai/api/v1";

@@ -1,0 +1,15 @@
+{
+  "model": "claude-fable-5",
+  "max_tokens": 8192,
+  "prompt_chars": 4226,
+  "ran_at": "2026-07-07T23:30:36.809636+00:00",
+  "dry_run": false,
+  "elapsed": 71.75,
+  "prompt_tokens": 4466,
+  "completion_tokens": 6798,
+  "total_tokens": 11264,
+  "status": "ok",
+  "response_chars": 13677,
+  "starts_with": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta nam",
+  "ends_with": "=\"https://venice.ai\">Venice AI</a></div>\n  </div>\n</footer>\n\n</body>\n</html>\n```"
+}

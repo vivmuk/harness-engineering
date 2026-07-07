@@ -11,4 +11,6 @@ dist/
 .vercel
 *.log
 .venv/
+__pycache__/
+*.pyc
 tsconfig.tsbuildinfo

@@ -18,14 +18,14 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-bg/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-rule bg-paper">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md bg-accent/10 group-hover:bg-accent/20 transition-colors">
               <Zap className="h-5 w-5 text-accent" />
             </div>
-            <span className="font-semibold text-lg tracking-tight text-text">
+            <span className="font-semibold text-lg tracking-tight text-ink">
               Harness Engineering
             </span>
           </Link>
@@ -37,8 +37,8 @@ export function Navbar() {
                 href={link.href}
                 className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   link.highlight
-                    ? "bg-accent text-white hover:bg-accent-light"
-                    : "text-text-secondary hover:text-text hover:bg-surface-2"
+                    ? "bg-accent text-paper hover:bg-accent-light"
+                    : "text-ink-2 hover:text-ink hover:bg-paper-2"
                 }`}
               >
                 {link.label}
@@ -48,7 +48,7 @@ export function Navbar() {
 
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden rounded-md p-2 text-text-secondary hover:text-text hover:bg-surface-2"
+            className="md:hidden rounded-md p-2 text-ink-2 hover:text-ink hover:bg-paper-2"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -57,7 +57,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-white/5 bg-surface">
+        <div className="md:hidden border-t border-rule bg-paper">
           <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => (
               <Link
@@ -66,8 +66,8 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   link.highlight
-                    ? "bg-accent text-white"
-                    : "text-text-secondary hover:text-text hover:bg-surface-2"
+                    ? "bg-accent text-paper"
+                    : "text-ink-2 hover:text-ink hover:bg-paper-2"
                 }`}
               >
                 {link.label}

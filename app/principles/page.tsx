@@ -47,9 +47,9 @@ export default function Principles() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
             Principles that make harnesses{" "}
-            <span className="gradient-text">last</span>
+            <span className="italic-accent">last</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-ink-2 leading-relaxed">
             These are the design habits that separate a harness that works once from a harness that gets better every time you use it.
           </p>
         </div>
@@ -58,23 +58,23 @@ export default function Principles() {
       <Section className="pb-16">
         <div className="grid md:grid-cols-2 gap-6">
           {principles.map((p) => (
-            <div key={p.title} className="rounded-2xl border border-white/5 bg-surface p-6 hover:border-accent/20 transition-colors">
+            <div key={p.title} className="rounded-2xl border border-rule bg-paper p-6 hover:border-accent/20 transition-colors">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
                 {p.icon}
               </div>
               <h2 className="text-xl font-bold mb-3">{p.title}</h2>
-              <p className="text-text-secondary leading-relaxed">{p.description}</p>
+              <p className="text-ink-2 leading-relaxed">{p.description}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+      <Section className="border-y border-rule bg-paper-2 pb-32">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Principles with history
           </h2>
-          <p className="text-text-secondary text-lg">
+          <p className="text-ink-2 text-lg">
             The best harness principles are not new. They are the same ones that kept ancient knowledge systems alive for centuries.
           </p>
         </div>

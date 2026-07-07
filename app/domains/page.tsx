@@ -64,9 +64,9 @@ export default function Domains() {
       <Section className="pt-24 pb-16" glow>
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Harnesses for <span className="gradient-text">every domain</span>
+            Harnesses for <span className="italic-accent">every domain</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
+          <p className="text-lg md:text-xl text-ink-2 leading-relaxed">
             The harness pattern is not limited to AI production. Here are just a few places it applies.
           </p>
         </div>
@@ -75,15 +75,15 @@ export default function Domains() {
       <Section className="pb-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domains.map((domain) => (
-            <div key={domain.title} className="rounded-2xl border border-white/5 bg-surface p-6 hover:border-accent/20 transition-colors flex flex-col">
+            <div key={domain.title} className="rounded-2xl border border-rule bg-paper p-6 hover:border-accent/20 transition-colors flex flex-col">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
                 {domain.icon}
               </div>
               <h2 className="text-xl font-bold mb-2">{domain.title}</h2>
-              <p className="text-text-secondary leading-relaxed mb-4 flex-1">{domain.description}</p>
+              <p className="text-ink-2 leading-relaxed mb-4 flex-1">{domain.description}</p>
               <div className="flex flex-wrap gap-2">
                 {domain.examples.map((ex) => (
-                  <span key={ex} className="text-xs font-mono px-2 py-1 rounded-md bg-surface-2 text-text-secondary">
+                  <span key={ex} className="text-xs font-mono px-2 py-1 rounded-md bg-surface-2 text-ink-2">
                     {ex}
                   </span>
                 ))}
@@ -93,7 +93,7 @@ export default function Domains() {
         </div>
       </Section>
 
-      <Section className="border-y border-white/5 bg-surface/30 pb-32">
+      <Section className="border-y border-rule bg-paper-2 pb-32">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm font-medium text-accent mb-4">
@@ -103,7 +103,7 @@ export default function Domains() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               A look that carries meaning
             </h2>
-            <p className="text-text-secondary text-lg leading-relaxed">
+            <p className="text-ink-2 text-lg leading-relaxed">
               The Indian and Egyptian visual themes are not decoration. They remind us that harnesses are a human pattern: rules, roles, records, and rituals, refined over millennia.
             </p>
           </div>

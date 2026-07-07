@@ -1,0 +1,415 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harness Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F0E8;
+  --paper-2:#ECDFC8;
+  --ink:#1A1A1F;
+  --ink-2:#6E6E78;
+  --rule:rgba(26,26,31,0.12);
+  --violet:#6d5dfc;
+  --violet-40:rgba(109,93,252,0.4);
+  --magenta:#FF2E93;
+  --cobalt:#0066FF;
+  --acid:#F5FF40;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Geist",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"Geist Mono",monospace;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+a{color:inherit;}
+
+.topbar{
+  border-bottom:1px solid var(--rule);
+  padding:18px 0;
+}
+.topbar-inner{
+  display:flex;align-items:baseline;justify-content:space-between;
+}
+.brand{
+  font-weight:600;font-size:15px;letter-spacing:-0.01em;
+}
+.brand span{color:var(--violet);}
+.topnav{
+  font-family:"Geist Mono",monospace;
+  font-size:12px;text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--ink-2);display:flex;gap:28px;
+}
+.topnav a{text-decoration:none;}
+.topnav a:hover{color:var(--ink);}
+
+.hero-outer{padding:48px 0 0;}
+.hero{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:24px;
+  padding:88px 64px 72px;
+}
+.eyebrow{
+  font-family:"Geist Mono",monospace;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--ink-2);
+  margin-bottom:28px;
+}
+.hero h1{
+  font-size:clamp(40px,5.6vw,64px);
+  font-weight:700;
+  letter-spacing:-0.03em;
+  line-height:1.06;
+  max-width:15ch;
+}
+.hero h1 em{
+  font-style:italic;
+  font-weight:600;
+  color:var(--magenta);
+}
+.hero p{
+  margin-top:26px;
+  max-width:52ch;
+  color:var(--ink-2);
+  font-size:17px;
+}
+.cta-row{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;
+  font-size:15px;font-weight:500;
+  padding:13px 26px;
+  border-radius:8px;
+  text-decoration:none;
+  border:1px solid transparent;
+  transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease;
+}
+.btn-primary{
+  background:var(--violet);
+  color:#fff;
+}
+.btn-primary:hover{background:#5a4ae8;}
+.btn-ghost{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--rule);
+}
+.btn-ghost:hover{border-color:var(--violet-40);}
+
+.trust{
+  margin-top:48px;
+  background:var(--paper-2);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:22px 0;
+}
+.trust-inner{
+  display:flex;align-items:baseline;gap:32px;flex-wrap:wrap;
+}
+.trust-label{
+  font-family:"Geist Mono",monospace;
+  font-size:11px;text-transform:uppercase;letter-spacing:0.14em;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.trust-list{
+  display:flex;gap:28px;flex-wrap:wrap;
+  color:var(--ink-2);
+  font-size:14px;font-weight:500;
+}
+
+.section{padding:88px 0;}
+.section-head{margin-bottom:44px;max-width:60ch;}
+.section-head h2{
+  font-size:clamp(26px,3vw,34px);
+  font-weight:700;letter-spacing:-0.02em;line-height:1.15;
+}
+.section-head p{margin-top:12px;color:var(--ink-2);}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.feature-card{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  padding:30px 26px;
+  transition:background-color 180ms ease,border-color 180ms ease;
+}
+.feature-card:hover{
+  background:var(--paper-2);
+  border-color:var(--violet-40);
+}
+.icon-block{
+  width:38px;height:38px;
+  border:1px solid var(--violet-40);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--violet);
+  margin-bottom:20px;
+}
+.icon-block svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.feature-card h3{
+  font-size:18px;font-weight:600;letter-spacing:-0.01em;margin-bottom:10px;
+}
+.feature-card .num{
+  font-family:"Geist Mono",monospace;
+  font-size:12px;color:var(--ink-2);float:right;
+}
+.feature-card p{font-size:15px;color:var(--ink-2);}
+
+.themes{
+  background:var(--paper-2);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.theme-card{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:14px;
+  overflow:hidden;
+  transition:background-color 180ms ease,border-color 180ms ease;
+}
+.theme-card:hover{
+  background:var(--paper-2);
+  border-color:var(--violet-40);
+}
+.theme-img{
+  aspect-ratio:4/3;
+  display:block;
+  width:100%;
+  border-bottom:1px solid var(--rule);
+}
+.theme-img svg{display:block;width:100%;height:100%;}
+.theme-body{padding:24px 24px 28px;}
+.theme-label{
+  font-family:"Geist Mono",monospace;
+  font-size:11px;text-transform:uppercase;letter-spacing:0.16em;
+  color:var(--violet);
+  margin-bottom:10px;
+}
+.theme-body h3{
+  font-size:18px;font-weight:600;letter-spacing:-0.01em;margin-bottom:8px;
+}
+.theme-body p{font-size:14.5px;color:var(--ink-2);}
+
+.final{
+  padding:96px 0;
+}
+.final-block{
+  background:var(--paper-2);
+  border:1px solid var(--violet);
+  border-radius:20px;
+  padding:72px 48px;
+  text-align:center;
+}
+.final-block h2{
+  font-size:clamp(28px,3.4vw,40px);
+  font-weight:700;letter-spacing:-0.025em;line-height:1.1;
+}
+.final-block p{
+  margin:16px auto 0;max-width:48ch;color:var(--ink-2);
+}
+.final-block .btn{margin-top:34px;}
+
+footer{
+  border-top:1px solid var(--rule);
+  padding:24px 0;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:baseline;
+  flex-wrap:wrap;gap:12px;
+  font-size:13px;color:var(--ink-2);
+}
+.footer-inner .fname{font-weight:600;color:var(--ink);}
+.footer-inner a{color:var(--violet);text-decoration:none;}
+.footer-inner a:hover{text-decoration:underline;}
+
+@media (max-width:860px){
+  .grid-3{grid-template-columns:1fr;}
+  .hero{padding:56px 28px 48px;}
+  .topnav{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">Harness<span>.</span>Engineering</div>
+    <nav class="topnav">
+      <a href="#features">Principles</a>
+      <a href="#themes">Framings</a>
+      <a href="#generate">Generate</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero-outer">
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Design agent harnesses for any domain</div>
+      <h1>Turn your ideas into <em>reusable AI systems</em>.</h1>
+      <p>A harness is a structured environment for an agent: tools, constraints, memory, and evaluation, composed into one artifact. Not a prompt. Harness Engineering generates complete harness recipes through the Venice API.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#generate">Generate a Harness Recipe</a>
+        <a class="btn btn-ghost" href="#features">Learn what a harness is</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-label">Built on ideas from</div>
+    <div class="trust-list">
+      <span>SWE-agent</span>
+      <span>Claude Code</span>
+      <span>OpenHands</span>
+      <span>Aider</span>
+      <span>LangGraph</span>
+      <span>Voyager</span>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Principles</div>
+      <h2>The harness is the product.</h2>
+      <p>Models change every quarter. A well-built harness outlives them. Three properties make that true.</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <span class="num mono">01</span>
+        <div class="icon-block">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg>
+        </div>
+        <h3>Universal</h3>
+        <p>One recipe grammar for every domain. Legal review, lab automation, game design, incident response. The harness abstracts the domain into tools, state, and stopping conditions, so the same structure ports anywhere.</p>
+      </div>
+      <div class="feature-card">
+        <span class="num mono">02</span>
+        <div class="icon-block">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 12l5-5"/><path d="M21 3v4h-4"/></svg>
+        </div>
+        <h3>Cost-controlled</h3>
+        <p>Every recipe ships with token budgets, model-tier routing, and hard call ceilings. Agents that cannot overspend by construction. You set the envelope once and the harness enforces it on every run.</p>
+      </div>
+      <div class="feature-card">
+        <span class="num mono">03</span>
+        <div class="icon-block">
+          <svg viewBox="0 0 24 24"><path d="M4 14a8 8 0 0 1 14-5"/><path d="M18 4v5h-5"/><path d="M20 10a8 8 0 0 1-14 5"/><path d="M6 20v-5h5"/></svg>
+        </div>
+        <h3>Self-improving</h3>
+        <p>Harnesses log their own traces and score them against the recipe's evaluation block. Failures become regression cases. The next generation of the recipe is derived from the last generation's evidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section themes" id="themes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Framings</div>
+      <h2>Three ways to think about a harness.</h2>
+      <p>Every engineering culture has already solved coordination under constraint. Pick the framing that fits how your team reasons.</p>
+    </div>
+    <div class="grid-3">
+      <div class="theme-card">
+        <div class="theme-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#E8632C"/>
+            <circle cx="200" cy="150" r="110" fill="none" stroke="#F4F0E8" stroke-width="2"/>
+            <circle cx="200" cy="150" r="82" fill="none" stroke="#F4F0E8" stroke-width="2"/>
+            <circle cx="200" cy="150" r="54" fill="none" stroke="#F4F0E8" stroke-width="2"/>
+            <circle cx="200" cy="150" r="26" fill="#F5FF40"/>
+            <path d="M200 40v220M90 150h220M122 72l156 156M278 72L122 228" stroke="#F4F0E8" stroke-width="1.5"/>
+            <circle cx="200" cy="150" r="10" fill="#1A1A1F"/>
+          </svg>
+        </div>
+        <div class="theme-body">
+          <div class="theme-label">Indian</div>
+          <h3>The yantra pattern</h3>
+          <p>A harness as a yantra: a precise geometric instrument where every layer channels intent toward a center. Tools are the outer rings, evaluation is the core, and nothing enters the diagram without a defined place.</p>
+        </div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#0066FF"/>
+            <g stroke="#F4F0E8" stroke-width="1.5" fill="none">
+              <path d="M50 150h300M200 30v240"/>
+              <rect x="120" y="90" width="160" height="120"/>
+              <rect x="160" y="120" width="80" height="60"/>
+            </g>
+            <circle cx="200" cy="150" r="8" fill="#F5FF40"/>
+            <circle cx="120" cy="90" r="5" fill="#F4F0E8"/>
+            <circle cx="280" cy="90" r="5" fill="#F4F0E8"/>
+            <circle cx="120" cy="210" r="5" fill="#F4F0E8"/>
+            <circle cx="280" cy="210" r="5" fill="#F4F0E8"/>
+          </svg>
+        </div>
+        <div class="theme-body">
+          <div class="theme-label">Unified</div>
+          <h3>The systems grid</h3>
+          <p>A harness as a control system: inputs, feedback, and a reference signal. Domain-neutral and diagrammatic. This is the default framing the generator uses when you give it nothing but a task description.</p>
+        </div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#1A1A1F"/>
+            <path d="M200 55L340 255H60z" fill="none" stroke="#F5FF40" stroke-width="2"/>
+            <path d="M200 55L200 255M144 135h112M116 175h168" stroke="#F5FF40" stroke-width="1.2"/>
+            <rect x="60" y="255" width="280" height="4" fill="#F4F0E8"/>
+            <circle cx="200" cy="55" r="7" fill="#FF2E93"/>
+          </svg>
+        </div>
+        <div class="theme-body">
+          <div class="theme-label">Egyptian</div>
+          <h3>The pyramid of scribes</h3>
+          <p>A harness as a hierarchy of scribes: a planner at the apex, workers at the base, and every block placed by rule. Escalation paths are explicit, and the record of construction survives the construction itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="generate">
+  <div class="wrap">
+    <div class="final-block">
+      <h2>Ready to engineer your harness?</h2>
+      <p>Describe your domain in a sentence. The generator returns a complete recipe: tools, budgets, evaluation, and framing, ready to run against the Venice API.</p>
+      <a class="btn btn-primary" href="#generate">Generate a Harness Recipe</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="fname">Harness Engineering</div>
+    <div>Set in Geist. Composed on bone paper, 2026.</div>
+    <div>Powered by <a href="https://venice.ai">Venice AI</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
+```
