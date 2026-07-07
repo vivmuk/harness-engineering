@@ -111,7 +111,7 @@ export default function Domains() {
             image="/images/hero-unified.webp"
             badge="Indo-Egyptian"
             title="Two civilizations, one architecture"
-            description="Observatories, archives, scribes, inspectors, and recurring motifs — every durable system needs the same harness layers."
+            description="Observatories, archives, scribes, inspectors, and recurring motifs ;  every durable system needs the same harness layers."
           />
         </div>
 
@@ -132,7 +132,7 @@ export default function Domains() {
             image="/images/card-unified.webp"
             badge="Every domain"
             title="Reusable across cultures"
-            description="The same harness layers work in any domain because the underlying problem — reliable, reusable work — is universal."
+            description="The same harness layers work in any domain because the underlying problem ;  reliable, reusable work ;  is universal."
           />
         </div>
       </Section>

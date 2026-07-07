@@ -3,7 +3,7 @@
 This is the polish brief handed to Fable 5 (`claude-fable-5`) on Venice. The operator
 has already locked the design read at the system level (Riso paper palette,
 ink-on-paper inverse of the prior dark Riso project). This brief hands Fable 5
-the verb-level tasks — the landing-page copy + interactive mockup — so we have
+the verb-level tasks, the landing-page copy + interactive mockup, so we have
 a self-consistent Fable-5 vision of the polished landing we can diff against
 the operator-handwritten `app/page.tsx`.
 
@@ -11,7 +11,7 @@ the operator-handwritten `app/page.tsx`.
 
 ```
 Generate a single self-contained HTML file for the polished landing page of
-"Harness Engineering" — a generator site that produces AI agent harnesses
+"Harness Engineering", a generator site that produces AI agent harnesses
 (any domain) via the Venice API.
 
 ## Register & tone
@@ -55,7 +55,7 @@ Generate a single self-contained HTML file for the polished landing page of
   rendered as plain uppercase mono caps, not as pills.
 - NO multiple emojis as section icons. Use single-character mono numerics
   ("01", "02", "03", "04") or `lucide-react` line icons.
-- The card hover state is `bg-paper-2 hover:border-accent/40` — NOT
+- The card hover state is `bg-paper-2 hover:border-accent/40`, NOT
   shadows, NOT scale-on-hover.
 
 ## Page structure
@@ -69,8 +69,7 @@ Generate a single self-contained HTML file for the polished landing page of
    `bg-paper-2` with a 1px `border-rule` and a 24px radius.
 
 2. **Trust strip.** On `bg-paper-2`, mono caps label `Built on ideas
-   from`, then a row of 4–6 sibling-products in `text-ink-2`. No logos,
-   no images — just text.
+   from`, then a row of 4–6 sibling-products in `text-ink-2`. No logos, no images, just text.
 
 3. **Three-column feature grid.** Three FeatureCards in a row.
    Topics: Universal · Cost-controlled · Self-improving. Each card
@@ -81,9 +80,8 @@ Generate a single self-contained HTML file for the polished landing page of
 
 4. **Cultural harness theme band.** Three ThemeCards in a row showing
    Indian / Unified / Egyptian framings. Each card holds its own
-   announcement: a label uppercase mono ("INDIAN", "UNIFIED",
-   "EGYPTIAN"), an h3 in ink, a description, and an image at the
-   top. Image fills 4:3 aspect with no overlay gradient — flat.
+   announcement: a label uppercase mono ("INDIAN", "UNIFIED", "EGYPTIAN"), an h3 in ink, a description, and an image at the
+   top. Image fills 4:3 aspect with no overlay gradient, flat.
 
 5. **Final CTA.** Loose violet `bg-paper-2 border-accent` block with
    an h2 ("Ready to engineer your harness?"), a one-paragraph

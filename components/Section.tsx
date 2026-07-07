@@ -4,7 +4,7 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   innerClassName?: string;
-  /** @deprecated decorative glow halos removed in the paper-palette polish — kept for back-compat with existing call sites. */
+  /** @deprecated decorative glow halos removed in the paper-palette polish ;  kept for back-compat with existing call sites. */
   glow?: boolean;
   id?: string;
 }

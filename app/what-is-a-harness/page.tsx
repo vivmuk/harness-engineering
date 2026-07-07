@@ -93,13 +93,13 @@ export default function WhatIsAHarness() {
             image="/images/hero-indian.webp"
             badge="Indian"
             title="Layered, living knowledge"
-            description="Miniature manuscripts, observatory instruments, and repeating motifs — every element placed to be preserved, consulted, and built upon."
+            description="Miniature manuscripts, observatory instruments, and repeating motifs ;  every element placed to be preserved, consulted, and built upon."
           />
           <ThemeCard
             image="/images/hero-egyptian.webp"
             badge="Egyptian"
             title="Structured, scalable record-keeping"
-            description="Papyrus archives, temple libraries, and standardized hieroglyphic rules — an environment where complex work could be reproduced with precision."
+            description="Papyrus archives, temple libraries, and standardized hieroglyphic rules ;  an environment where complex work could be reproduced with precision."
           />
         </div>
       </Section>

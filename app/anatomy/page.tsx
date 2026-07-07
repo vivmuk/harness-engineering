@@ -120,7 +120,7 @@ export default function Anatomy() {
             image="/images/card-indian.webp"
             badge="Rules & records"
             title="Indian observatories"
-            description="Celestial rules, instrument specialists, and manuscript archives — all preserved so the next generation could resume the work."
+            description="Celestial rules, instrument specialists, and manuscript archives ;  all preserved so the next generation could resume the work."
           />
           <ThemeCard
             image="/images/card-unified.webp"

@@ -45,7 +45,7 @@ function writeStore(entries: StoredRecipe[]): boolean {
     window.localStorage.setItem(STORE_KEY, JSON.stringify(entries));
     return true;
   } catch {
-    // Quota exceeded or storage disabled — drop oldest entries and retry once.
+    // Quota exceeded or storage disabled ;  drop oldest entries and retry once.
     try {
       window.localStorage.setItem(STORE_KEY, JSON.stringify(entries.slice(0, Math.ceil(entries.length / 2))));
       return true;

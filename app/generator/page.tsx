@@ -107,7 +107,7 @@ export default function GeneratorPage() {
           if (parsed.image) setImageModel(parsed.image);
         }
       } catch {
-        // storage unavailable — proceed with defaults
+        // storage unavailable ;  proceed with defaults
       }
       setHistory(listRecipes());
 

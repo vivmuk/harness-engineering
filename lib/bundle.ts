@@ -43,17 +43,17 @@ ${recipe.summary}
 
 ## Files included
 
-- \`CLAUDE.md\` — orchestration rules
-- \`.claude/commands/${kebab}.md\` — workflow playbook
-- \`.claude/agents/README.md\` — specialist agents
-- \`.claude/skills/${kebab}/SKILL.md\` — reusable skill
-- \`project-state-schema.md\` — state schema
-- \`execution-layer.md\` — execution layer guide
-- \`anti-patterns.md\` — anti-patterns log
-- \`qhx-loop.md\` — recursive improvement loop
-- \`venice-api-usage.md\` — Venice API integration notes
-- \`model-routing.md\` — model suggestions
-${recipe.mermaidDiagram ? "- `diagram.mmd` — architecture diagram (Mermaid source)\n" : ""}
+- \`CLAUDE.md\` ;  orchestration rules
+- \`.claude/commands/${kebab}.md\` ;  workflow playbook
+- \`.claude/agents/README.md\` ;  specialist agents
+- \`.claude/skills/${kebab}/SKILL.md\` ;  reusable skill
+- \`project-state-schema.md\` ;  state schema
+- \`execution-layer.md\` ;  execution layer guide
+- \`anti-patterns.md\` ;  anti-patterns log
+- \`qhx-loop.md\` ;  recursive improvement loop
+- \`venice-api-usage.md\` ;  Venice API integration notes
+- \`model-routing.md\` ;  model suggestions
+${recipe.mermaidDiagram ? "- `diagram.mmd` ;  architecture diagram (Mermaid source)\n" : ""}
 
 ## Anti-patterns to watch
 

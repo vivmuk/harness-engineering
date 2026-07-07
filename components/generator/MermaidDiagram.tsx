@@ -88,7 +88,7 @@ export function MermaidDiagram({ code }: { code: string }) {
         <div className="p-4">
           {failed && (
             <p className="text-xs text-warning mb-2">
-              The diagram could not be rendered — showing the Mermaid source instead.
+              The diagram could not be rendered ;  showing the Mermaid source instead.
             </p>
           )}
           <pre className="text-xs overflow-x-auto"><code>{code}</code></pre>

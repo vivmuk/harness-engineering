@@ -2,23 +2,24 @@
 @plugin "@tailwindcss/typography";
 
 /* =========================================================================
- * Harness Engineering — viv-design Riso-on-paper polish (2026-07-07)
- * Design read: BRAND showcase for an AI harness-generation toolkit.
- * Palette: paper-led, ink-on-paper inverse of the prior dark Riso project.
- * Anti-slop: NO carbon-on-paper cream mirror, NO tri-color gradient text,
- *            NO glassmorphism, NO decorative-float keyframes, NO glow halos.
+ * Harness Engineering  - viv-design v2 polish (2026-07-07)
+ * Design read: BRAND register (design IS the product), website+generator
+ * for AI agent harnesses. Off-white chroma-0 paper + cobalt accent.
+ * Anti-slop: NO cream monoculture, NO violet AI-purple, NO em-dashes, * NO tri-color gradient text, NO glassmorphism, NO 3-equal card grids, * NO decorative scrim over hero, NO eyebrow on every section.
  * ======================================================================== */
 
 @theme {
-  /* --- surface tokens (paper-led) --- */
-  --color-paper:    #F4F0E8;
-  --color-paper-2:  #ECDFC8;
-  --color-paper-3:  #E0D2B0;
-  --color-ink:      #1A1A1F;
-  --color-ink-2:    #6E6E78;
-  --color-rule:     rgba(26, 26, 31, 0.12);
+  /* --- surfaces (chroma 0; not the cream/wheat/bone monoculture band) --- */
+  --color-paper:    #FAFAF7;
+  --color-paper-2:  #F0F0EC;
+  --color-paper-3:  #E6E6E0;
+  --color-ink:      #0F0F0F;
+  --color-ink-2:    #525258;
+  --color-ink-3:    #8A8A92;
+  --color-rule:     rgba(15, 15, 15, 0.12);
+  --color-rule-2:   rgba(15, 15, 15, 0.20);
 
-  /* --- legacy variable aliases used by tailwind.config.ts + components --- */
+  /* --- legacy aliases for back-compat --- */
   --color-bg:        var(--color-paper);
   --color-surface:   var(--color-paper);
   --color-surface-2: var(--color-paper-2);
@@ -26,52 +27,60 @@
   --color-text:      var(--color-ink);
   --color-text-secondary: var(--color-ink-2);
 
-  /* --- brand action (kept: distinctive violet, not on reflex-reject list) --- */
-  --color-accent:        #6d5dfc;
-  --color-accent-light:  #8b7dff;
-  --color-accent-glow:   rgba(109, 93, 252, 0.20);
+  /* --- brand action: cobalt (kept; not on AI-purple tell list) --- */
+  --color-accent:        #0033CC;
+  --color-accent-dark:   #001F7A;
+  --color-accent-light:  #3366FF;
+  --color-accent-glow:   rgba(0, 51, 204, 0.20);
 
-  /* --- Riso data-viz accents (carried over from prior dark Riso project) --- */
+  /* --- secondary ink family (carried over from prior Riso project) --- */
   --color-magenta: #FF2E93;
-  --color-cobalt:  #0066FF;
+  --color-cobalt:  #0033CC;
   --color-acid:    #F5FF40;
+  --color-amber:   #D4760A;
 
-  /* --- status colors (tuned for light bg, not the default dark neon) --- */
+  /* --- status --- */
   --color-success: #1A7F37;
   --color-warning: #B25305;
-  --color-orange:  #E04D0E;
-  --color-blue:    #0066FF;
 }
 
 :root {
   /* Plain CSS custom properties so non-tailwind references still resolve */
-  --paper: #F4F0E8;
-  --paper-2: #ECDFC8;
-  --paper-3: #E0D2B0;
-  --ink: #1A1A1F;
-  --ink-2: #6E6E78;
-  --rule: rgba(26, 26, 31, 0.12);
+  --paper: #FAFAF7;
+  --paper-2: #F0F0EC;
+  --paper-3: #E6E6E0;
+  --ink: #0F0F0F;
+  --ink-2: #525258;
+  --ink-3: #8A8A92;
+  --rule: rgba(15, 15, 15, 0.12);
+  --rule-2: rgba(15, 15, 15, 0.20);
 
-  --bg: #F4F0E8;
-  --surface: #F4F0E8;
-  --surface-2: #ECDFC8;
-  --surface-3: #E0D2B0;
+  --bg: #FAFAF7;
+  --surface: #FAFAF7;
+  --surface-2: #F0F0EC;
+  --surface-3: #E6E6E0;
 
-  --text: #1A1A1F;
-  --text-secondary: #6E6E78;
+  --text: #0F0F0F;
+  --text-secondary: #525258;
+  --text-tertiary: #8A8A92;
 
-  --accent: #6d5dfc;
-  --accent-light: #8b7dff;
-  --accent-glow: rgba(109, 93, 252, 0.20);
+  --accent: #0033CC;
+  --accent-dark: #001F7A;
+  --accent-light: #3366FF;
+  --accent-glow: rgba(0, 51, 204, 0.20);
 
   --magenta: #FF2E93;
-  --cobalt: #0066FF;
+  --cobalt: #0033CC;
   --acid: #F5FF40;
+  --amber: #D4760A;
 
   --success: #1A7F37;
   --warning: #B25305;
-  --orange: #E04D0E;
-  --blue: #0066FF;
+
+  /* Motion: custom easings (built-ins are too weak) */
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -84,50 +93,113 @@ html {
 
 body {
   background-color: var(--bg);
-  color: var(--text);
+  color: var(--ink);
   font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Subtle film grain overlay, preserves the print artifact without going 1990s.
+ * SVG turbulence at 5% opacity so it reads as texture, not decoration. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Selection */
 ::selection {
   background-color: var(--accent);
   color: var(--paper);
+}
+
+/* Cursor on interactive */
+a, button, [role="button"] {
+  cursor: pointer;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-/* Single-color accent span — replaces the deleted gradient-text reflex.
- * Used for the italic word in hero headlines. */
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Single-color accent span (replaces anti-slop tri-color gradient-text).
+ * Tight tracking and a warm-substance position give it editorial weight. */
 .italic-accent {
   font-style: italic;
   font-weight: 700;
   color: var(--magenta);
+  letter-spacing: -0.025em;
 }
 
-/* Single-color rule border — replaces the deleted gradient-border reflex.
- * 1px ink-on-paper. */
-.rule-border {
-  border: 1px solid var(--rule);
+/* Mono micro-labels that earn their place (single per page, not above every section) */
+.mono-caps {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
 }
 
-/* Custom scrollbar (light) */
+/* SCROLL-REVEAL, fires on IntersectionObserver. Custom ease-out 700ms.
+ * Reduced motion: opacity only, drop translate. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children for the reveal-group container */
+.reveal-group .reveal:nth-child(2) { transition-delay: 80ms; }
+.reveal-group .reveal:nth-child(3) { transition-delay: 160ms; }
+.reveal-group .reveal:nth-child(4) { transition-delay: 240ms; }
+
+/* Ghost-card disabler: when we pick a 1px border on a card we DON'T add a soft wide drop shadow on top.
+ * Card chrome is one of these only. */
+.card-border-rule { border: 1px solid var(--rule); }
+.card-border-accent { border: 1px solid var(--accent); }
+
+/* Subtle hover lift on interactive cards (only @media hover-capable + fine pointer) */
+@media (hover: hover) and (pointer: fine) {
+  .hover-raise {
+    transition: transform 220ms var(--ease-out), border-color 220ms var(--ease-out);
+  }
+  .hover-raise:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Custom scrollbar (light, ergonomic) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--surface-2);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--rule);
-  border-radius: 4px;
+  background: var(--ink-3);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
 
-/* Code blocks (light) */
+/* Code blocks */
 pre {
   background: var(--surface-2);
   border: 1px solid var(--rule);
@@ -141,17 +213,19 @@ code {
   font-size: 0.875em;
 }
 
-/* Reduced-motion override — strip any decorative keyframes that survived */
+/* Reduce-motion fallback, gentler (keep opacity / color), drop movement */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0s !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body::before { opacity: 0.03 !important; }
 }
 
-/* Rendered markdown inside the generator's recipe sections.
- * Inherits the rest of the typography stack from Tailwind v4 typography. */
+/* Typography registry: rendered markdown inside the generator's recipe sections */
 .prose-harness {
   --tw-prose-body: var(--text-secondary);
   --tw-prose-headings: var(--text);
