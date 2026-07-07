@@ -16,6 +16,10 @@ export function buildHarnessBundle(recipe: HarnessRecipe): JSZip {
   zip.file("venice-api-usage.md", recipe.veniceApiUsage);
   zip.file("model-routing.md", recipe.modelSuggestions);
 
+  if (recipe.mermaidDiagram) {
+    zip.file("diagram.mmd", recipe.mermaidDiagram);
+  }
+
   if (recipe.diagramImage) {
     const b64 = recipe.diagramImage.replace(/^data:image\/png;base64,/, "");
     zip.file("harness-diagram.png", b64, { base64: true });
@@ -49,6 +53,7 @@ ${recipe.summary}
 - \`qhx-loop.md\` — recursive improvement loop
 - \`venice-api-usage.md\` — Venice API integration notes
 - \`model-routing.md\` — model suggestions
+${recipe.mermaidDiagram ? "- `diagram.mmd` — architecture diagram (Mermaid source)\n" : ""}
 
 ## Anti-patterns to watch
 
